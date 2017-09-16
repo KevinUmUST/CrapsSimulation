@@ -19,7 +19,7 @@ import java.util.ArrayList;
  * @author Eric Level
  * 
  */
-public class TestCraps
+public class CrapsSimulation
 {
 	public static final int NUM_TO_PLAY = 1000000;
 
@@ -60,7 +60,7 @@ public class TestCraps
 	/**
 	 * Constructor TestCraps() creates a new CrapsGame for subsequent play.
 	 */
-	public TestCraps()
+	public CrapsSimulation()
 	{
 		// game = new CrapsGame();
 
@@ -130,7 +130,7 @@ public class TestCraps
 
 	public static void main(String[] args)
 	{
-		TestCraps test = new TestCraps();
+		CrapsSimulation test = new CrapsSimulation();
 
 		StdOut.println("Starting simulation of " + NUM_TO_PLAY + " games...");
 
