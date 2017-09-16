@@ -6,24 +6,17 @@
 
 public class PlayWithInheritance
 {
-	public static int RUN_EXAMPLE = 1; // change this to try different behaviors
-										// below
-
+	public static int RUN_EXAMPLE = 1;
+	
 	public static void main(String[] args)
 	{
 		StdOut.println();
-
-		// common to all examples...
-
-		// which constructors are called in the following?
 
 		Die aSingleDie = new Die();
 		CrookedDie1 crooked1 = new CrookedDie1();
 		CrookedDie2 crooked2 = new CrookedDie2();
 
 		StdOut.println();
-
-		// change RUN_EXAMPLE above to run any one of the following 6 examples
 
 		if (RUN_EXAMPLE == 1)
 		{

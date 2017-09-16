@@ -62,13 +62,7 @@ public class CrapsSimulation
 	 */
 	public CrapsSimulation()
 	{
-		// game = new CrapsGame();
-
-		game = new CrapsGame(new Die(), new Die()); // two "fair" Die objects
-
-		// we'll use the above to substitute Die subclass objects,
-		// thus affecting the outcome
-	
+		game = new CrapsGame(new CrookedDie2(), new CrookedDie2());
 	}
 
 	/**

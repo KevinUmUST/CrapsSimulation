@@ -1,47 +1,40 @@
-
 public class Die
 {
 	private int lastRoll;
 
 	public Die()
 	{
-		// CrapsGame.println("Die's constructor called.");
 		this.roll();
 	}
 
-	public Die(int firstValue) // overloaded constructor: different signature
+	public Die(int firstValue)
 	{
 		setLastRoll(firstValue);
 	}
 
-	public int getLastRoll() // getter or accessor method
+	public int getLastRoll()
 	{
 
 		return this.lastRoll;
 	}
 
-	// protected => visible to subclasses and package
-	protected void setLastRoll(int lastRoll) // setter or mutator method
+	protected void setLastRoll(int lastRoll)
 	{
 		this.lastRoll = lastRoll;
 	}
 
-	public void roll() // note how this changes Die's state, but doesn't return anything
+	public void roll()
 	{
 		setLastRoll((int) (Math.random() * 6 + 1));
 	}
 
-	// try changing visibility of toString to protected...
 	@Override
-	public String toString() // this OVERRIDES the default Object.toString()
+	public String toString()
 	{
-		return "A Die object with roll " + this.getLastRoll();
-
-		// add the following to the end of the above line:
-		// + " " + super.toString()
+		return "A Die object with roll " + this.getLastRoll() + " " + super.toString();
 	}
 
-	public String toString(int msg) // Overloading... but NOT overriding!
+	public String toString(int msg)
 	{
 		return msg + this.toString();
 	}
