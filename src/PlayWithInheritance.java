@@ -18,72 +18,50 @@ public class PlayWithInheritance
 
 		StdOut.println();
 
-		if (RUN_EXAMPLE == 1)
+		Die alias;
+		
+		switch(RUN_EXAMPLE)
 		{
-			StdOut.println("Note the output: constructor chaining.");
+			case 1:
+				StdOut.println("Note the output: constructor chaining.");
+				break;
+			case 2:
+				StdOut.println(aSingleDie.toString());
+				StdOut.print("toString() automatically called when reference treated as String: ");
+				StdOut.println(aSingleDie.toString());
+				StdOut.println("Concatenating a string to a reference: " + aSingleDie.toString());
+				break;
+			case 3:	
+				StdOut.println("die1's toString(): '" + aSingleDie + "'");
+				StdOut.println("crooked1's toString(): '" + crooked1 + "'");
+				StdOut.println("crooked2's toString(): '" + crooked2 + "'");
+				break;
+			case 4:
+				//alias = die1; // try replacing this line with either below
+				alias = crooked1; // upcasting!
+				//alias = crooked2; // ditto
+				StdOut.println("alias's toString(): '" + alias.toString() + "'");
+				StdOut.println();
+				break;
+			case 5:
+				double toss = Math.random(); // [0.0..1.0)
+	
+				if (toss < 0.333)
+					alias = aSingleDie;
+				else if (toss < 0.666)
+					alias = crooked1;
+				else
+					alias = crooked2;
+				describe("Which toString() is called? Answer is: ", alias);
+				break;
+			case 6:
+				Dice dice = new Dice(aSingleDie, crooked1); // we'll try substituting here
+	
+				dice.roll();
+	
+				int result = dice.getLastRoll();
+				StdOut.printf("Roll of '%s' and '%s' is: %d.\n", aSingleDie, crooked1, result);
 		}
-		else if (RUN_EXAMPLE == 2)
-		{
-			// When a reference is treated like a String
-			// => toString() is automatically invoked, and its returned value
-			// used instead!
-
-			StdOut.println(aSingleDie.toString());
-
-			StdOut.print("toString() automatically called when reference treated as String: ");
-			StdOut.println(aSingleDie.toString());
-			StdOut.println("Concatenating a string to a reference: " + aSingleDie.toString());
-		}
-		else if (RUN_EXAMPLE == 3)
-		{
-			// concatenate " " + super.toString() to end of toString() code
-			// inside each of 3 classes, then watch the result when run again.
-
-			StdOut.println("die1's toString(): '" + aSingleDie + "'");
-			StdOut.println("crooked1's toString(): '" + crooked1 + "'");
-			StdOut.println("crooked2's toString(): '" + crooked2 + "'");
-		}
-		else if (RUN_EXAMPLE == 4)
-		{
-			// Die alias = die1; // try replacing this line with either below
-			Die alias = crooked1; // upcasting!
-			// Die alias = crooked2; // ditto
-
-			StdOut.println("alias's toString(): '" + alias.toString() + "'");
-			StdOut.println();
-		}
-		else if (RUN_EXAMPLE == 5)
-		{
-			Die alias;
-
-			double toss = Math.random(); // [0.0..1.0)
-
-			if (toss < 0.333)
-				alias = aSingleDie;
-			else if (toss < 0.666)
-				alias = crooked1;
-			else
-				alias = crooked2;
-
-			// Can the compiler figure out the actual type
-			// of alias in the following call?
-			// No => dynamic runtime lookup happens
-
-			describe("Which toString() is called? Answer is: ", alias);
-		}
-		else if (RUN_EXAMPLE == 6)
-		{
-			Die another = new Die();
-
-			Dice dice = new Dice(aSingleDie, crooked1); // we'll try substituting here
-
-			dice.roll();
-
-			int result = dice.getLastRoll();
-
-			StdOut.printf("Roll of '%s' and '%s' is: %d.\n", aSingleDie, crooked1, result);
-		}
-
 		StdOut.println();
 	}
 
